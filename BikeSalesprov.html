@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Bike Sales Project</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            background-color: #004080;
+            color: #ffffff;
+            padding: 20px 10px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        main {
+            padding: 20px;
+        }
+        h2 {
+            color: #004080;
+        }
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        pre, code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        img {
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            max-width: 100%;
+            height: auto;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        a {
+            color: #004080;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bike Sales Project</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Description</h2>
+            <p>This project analyzes bike sales data to uncover trends, identify key sales regions, and assess the impact of customer demographics on revenue. The project utilizes advanced Excel techniques, including pivot tables, conditional formatting, and data visualization.</p>
+        </section>
+        <section>
+            <h2>Key Insights</h2>
+            <div style="background-color: #f4f4f4; padding: 20px; border: 1px solid #ccc; overflow-x: auto;">
+                <pre><code>
+                    # Formulas Used:
+                    To create age brackets -> "=IFS(L2<31;"Young 0-30";L2<55;"Adult 31-54";L2>=55;"Senior Over 55")"
+
+                    # Pivot Table: Count of Purchased Bike	Column Labels		
+                    Row Labels	No	Yes	Grand Total
+                    0-1 Miles	166	200	366
+                    1-2 Miles	92	77	169
+                    2-5 Miles	67	95	162
+                    5-10 Miles	116	76	192
+                    More than 10 Miles	78	33	111
+                    Grand Total	519	481	1000
+
+                    # Pivot Table: Count of Purchased Bike	Column Labels		
+                    Row Labels	No	Yes	Grand Total
+                    Young 0-30	71	39	110
+                    Adult 31-54	318	383	701
+                    Senior Over 55	130	59	189
+                    Grand Total	519	481	1000
+                </code></pre>
+            </div>
+        </section>
+        <section>
+            <h2>Visualization</h2>
+            <img src="images/Bike Sales Project Dasboard-1.png" alt="Bike Sales Dashboard Screenshot" />
+        </section>
+        <section>
+            <h2>Download</h2>
+            <p>You can download the Excel file and explore the project:</p>
+            <a href="downloads/Bike Sales Project.xlsx" download>Download Excel File</a>
+        </section>
+    </main>
+    <footer>
+        <p>Back to <a href="index.html">Portfolio</a></p>
+    </footer>
+</body>
+</html>
