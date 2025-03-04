@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title style="color: white;">Warships Monitoring - Russian-Ukrainian War</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            background-color: #004080;
+            color: #ffffff;
+            padding: 20px 10px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+            color: white;
+        }
+        main {
+            padding: 20px;
+        }
+        h2 {
+            color: #004080;
+        }
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #555;
+        }
+        pre, code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+        img {
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            max-width: 100%;
+            height: auto;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        a {
+            color: #004080;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Warships Monitoring - Russian-Ukrainian War</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Description</h2>
+            <p>SQL-based analysis of warship positioning and routes in the Russian-Ukrainian War accompanied by Tableau visualizations.</p>
+        </section>
+        <section>
+            <h2>Data Storytelling</h2>
+            <h3>Enemy Ship Trends in the Black Sea</h3>
+            <p>The Black Sea has witnessed fluctuating enemy ship presence, with notable peaks indicating possible naval operations. The peak in early 2023 suggests intensified activity, aligning with major military offensives.</p>
+            
+            <h3>Kerch Strait Passages</h3>
+            <p>The Kerch Strait, a crucial maritime passage, has seen a decline in total ship passages. This may reflect increased security measures, blockades, or shifting strategic priorities in naval logistics.</p>
+            
+            <h3>Kalibr Carrier Deployment</h3>
+            <p>Kalibr cruise missile carriers are primarily concentrated in the Black Sea, with a secondary presence in the Mediterranean Sea. The Azov Sea hosts minimal Kalibr carriers due to its geographical constraints.</p>
+            
+            <h3>Missile Salvos by Region</h3>
+            <p>The Black Sea leads in total missile salvos, highlighting its role as a primary conflict zone. The Mediterranean contributes significantly, possibly from supporting naval units or missile platforms.</p>
+            
+            <h3>Days with High Missile Strikes</h3>
+            <p>Certain days saw exceptionally high missile salvos, suggesting major offensives or retaliatory strikes. </p>
+        </section>
+        <section>
+            <h2>SQL Code</h2>
+            <pre><code>
+                SELECT *
+                FROM warships_monitoring.data_monitoring;
+
+                -- Daily Trend of Enemy Ships in the Black Sea
+                SELECT DATE(`date`) AS day, SUM(`black_sea.enemy_ships`) AS total_enemy_ships 
+                FROM data_monitoring 
+                GROUP BY day 
+                ORDER BY day;
+
+                -- Weekly Trend of Kalibr Carriers in the Mediterranean Sea
+                SELECT YEAR(`date`) AS year, WEEK(`date`) AS week, SUM(`mediterranean_sea.kalibr_carriers`) AS total_kalibr_carriers 
+                FROM data_monitoring 
+                GROUP BY year, week 
+                ORDER BY year, week;
+
+                -- Total Salvos by Region
+                SELECT 'Black Sea' AS region, SUM(`black_sea.total_salvo`) AS total_salvos FROM data_monitoring
+                UNION ALL 
+                SELECT 'Azov Sea', SUM(`azov_sea.total_salvo`) FROM data_monitoring
+                UNION ALL 
+                SELECT 'Mediterranean Sea', SUM(`mediterranean_sea.total_salvo`) FROM data_monitoring;
+            </code></pre>
+        </section>
+        <section>
+            <h2>Tableau Visualization</h2>
+            <img src="images/WarshipMonitoring_Tableau.png" alt="Warships Monitoring Dashboard" style="width: 100%; height: auto;" />
+        </section>
+    </main>
+    <footer>
+        <p>Back to <a href="index.html">Portfolio</a></p>
+    </footer>
+</body>
+</html>

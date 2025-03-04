@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Marketing Campaigns Analysis in Excel</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            background-color: #004080;
+            color: #ffffff;
+            padding: 20px 10px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        main {
+            padding: 20px;
+        }
+        h2 {
+            color: #004080;
+        }
+        p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        pre, code {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        img {
+            display: block;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            max-width: 100%;
+            height: auto;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        a {
+            color: #004080;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Marketing Campaigns Analysis</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Description</h2>
+            <p>Interactive dashboard analyzing marketing campaigns data. Built to provide insights into campaign performance and spending efficiency.</p>
+        </section>
+        <section>
+            <h2>Key Insights</h2>
+            <div style="background-color: #f4f4f4; padding: 20px; border: 1px solid #ccc; overflow-x: auto;">
+                <pre><code>
+                    # Formulas Used:
+                    To create budget range -> "=IFS(D10<8126; "Low Budget"; AND(D10>=8126; D10<=16253); "Medium Budget"; AND(D10>16253; D10<32506); "Medium-High Budget"; D10>=32506; "Very High Budget")"
+                    To create coversion rate range -> "=IFS(K9<0,05;"Ineffective";AND(K9>=0,05;K9<0,1);"Minor";AND(K9>=0,1;K9<=0,2);"Notable";K9>0,2;"Significant")"
+                   
+                    Used Conditional Formatting to highlight overbudget campaigns.
+                    
+                    # Pivot Table: Row Labels	Sum of Leads_Generated
+                    Very High Budget	34%
+                    Medium-High Budget	34%
+                    Medium Budget	16%
+                    Low Budget	16%
+                    Grand Total	100%                    
+
+                    # Pivot Table: Sum of Count Campaigns	Column Labels		
+                    Row Labels	Over Budget	Within Budget	Grand Total
+                    Low Budget	72	87	159
+                    Medium Budget	62	91	153
+                    Medium-High Budget	132	188	320
+                    Very High Budget	139	179	318
+                    Grand Total	405	545	950
+
+                    # Pivot Table: Sum of Count Campaigns	Column Labels	
+                    Row Labels	Notable	Grand Total
+                    Low Budget	48	48
+                    Medium Budget	70	70
+                    Medium-High Budget	119	119
+                    Very High Budget	110	110
+                    Grand Total	347	347                    
+                </code></pre>
+            </div>
+        </section>
+        <section>
+            <h2>Visualization</h2>
+            <img src="images/Campaigns Evaluation Project Dashboard/Campaigns Evaluation Project Dashboard-1.png" alt="Bike Sales Dashboard Screenshot" />
+        </section>
+    </main>
+    <footer>
+        <p>Back to <a href="index.html">Portfolio</a></p>
+    </footer>
+</body>
+</html>
